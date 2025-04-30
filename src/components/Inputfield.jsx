@@ -1,0 +1,60 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const Inputfield = ({
+  icon: Icon,
+  name,
+  onClick,
+  label,
+  type,
+  placeholder,
+  value,
+  error,
+  forgetpass,
+}) => {
+  const Navigate = useNavigate();
+
+  return (
+    <div className={`w-full relative ${forgetpass && 'my-2'} cursor-pointer`}>
+      <label
+        htmlFor={name}
+        className='text-textPara text-sm px-4 '
+      >
+        {label}
+      </label>
+      <div className=' relative'>
+        <input
+          type={type}
+          name={name}
+          id={name}
+          placeholder={placeholder}
+          className='w-full py-3 focus:bg-focusBlue outline-none placeholder:capitalize my-1 px-4 border-none rounded-full backdrop-blur-3xl bg-[#f5f3f1] text-sm'
+          value={value}
+        />
+        {Icon && (
+          <div
+            onClick={onClick}
+            className='absolute top-1/2 right-4 p-1 transform -translate-y-1/2 text-gray-500'
+          >
+            {Icon}
+          </div>
+        )}
+      </div>
+      {error && (
+        <span className='text-[0.7rem] text-red-600 mt-2 absolute top-0 right-0'>
+          {error}
+        </span>
+      )}
+      {forgetpass && (
+        <span
+          className='text-sm text-lightBgShade absolute cursor-pointer -bottom-4 right-0'
+          onClick={() => Navigate('/forgot-password')}
+        >
+          <p>forgot password?</p>
+        </span>
+      )}
+    </div>
+  );
+};
+
+export default Inputfield;
