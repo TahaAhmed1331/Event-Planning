@@ -3,6 +3,7 @@ import Inputfield from '../components/Inputfield';
 import { AlignHorizontalDistributeCenter, Eye, EyeOff } from 'lucide-react';
 import Button from '../components/Button';
 import Dropdown from '../components/Dropdown';
+import Typography from '../components/Typography';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,10 +17,8 @@ const Login = () => {
             Crexito
           </div>
         </div>
-        <div className='w-[65%] py-2 gap-6 flex-col flex justify-start items-center'>
-          <h1 className='text-3xl capitalize font-normal text-textHeading'>
-            Login to our account
-          </h1>
+        <div className='w-[65%] py-2 gap-4 flex-col flex justify-start items-center'>
+          <Typography text={'login to your account'} variant={'heading'} className={'capitalize'}  />
           <Inputfield
             label={'Email'}
             placeholder={'enter your email'}

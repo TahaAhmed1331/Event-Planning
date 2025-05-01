@@ -15,7 +15,7 @@ const Inputfield = ({
   const Navigate = useNavigate();
 
   return (
-    <div className={`w-full relative ${forgetpass && 'my-2'} cursor-pointer`}>
+    <div className={`w-full relative cursor-pointer`}>
       <label
         htmlFor={name}
         className='text-textPara text-sm px-4 '
