@@ -27,7 +27,7 @@ const Dropdown = ({
       <label className='text-textPara text-sm px-4'>{label}</label>
       <div
         onClick={toggleDropdown}
-        className='w-full py-3 px-4 my-1 rounded-full backdrop-blur-3xl bg-[#f5f3f1] text-sm text-gray-700 cursor-pointer flex items-center justify-between'
+        className='w-full py-[0.6rem] px-4 my-1 rounded-full backdrop-blur-3xl bg-[#f5f3f1] text-sm text-gray-700 cursor-pointer flex items-center justify-between'
       >
         <span className='capitalize'>{value ? value.label : placeholder}</span>
         <span

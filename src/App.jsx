@@ -5,7 +5,9 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Project from './pages/Projects';
 import ForgotPassword from './pages/ForgotPassword';
+import Users from './pages/Users';
 
 function App() {
   return (
@@ -34,6 +36,14 @@ function App() {
           <Route
             path='about'
             element={<About />}
+          />
+          <Route
+            path='projects'
+            element={<Project />}
+          />
+          <Route
+            path='users'
+            element={<Users />}
           />
         </Route>
       </Routes>

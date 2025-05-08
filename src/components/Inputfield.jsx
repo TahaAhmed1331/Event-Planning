@@ -15,7 +15,7 @@ const Inputfield = ({
   const Navigate = useNavigate();
 
   return (
-    <div className={`w-full relative cursor-pointer`}>
+    <div className={`w-full relative cursor-pointer my-[0.1rem]`}>
       <label
         htmlFor={name}
         className='text-textPara text-sm px-4 '
@@ -28,13 +28,15 @@ const Inputfield = ({
           name={name}
           id={name}
           placeholder={placeholder}
-          className='w-full py-3 focus:bg-focusBlue outline-none placeholder:capitalize my-1 px-4 border-none rounded-full backdrop-blur-3xl bg-[#f5f3f1] text-sm'
+          className='w-full py-[0.6rem] focus:bg-focusBlue outline-none 
+          placeholder:capitalize px-4 border-none rounded-full 
+          backdrop-blur-3xl bg-[#f5f3f1] text-sm'
           value={value}
         />
         {Icon && (
           <div
             onClick={onClick}
-            className='absolute top-1/2 right-4 p-1 transform -translate-y-1/2 text-gray-500'
+            className='absolute top-1/2 right-4 p-1 transform -translate-y-1/2 text-gray-500 scale-90'
           >
             {Icon}
           </div>
@@ -47,7 +49,7 @@ const Inputfield = ({
       )}
       {forgetpass && (
         <span
-          className='text-sm text-lightBgShade absolute cursor-pointer -bottom-4 right-0'
+          className='text-sm text-lightBgShade absolute cursor-pointer -bottom-6 right-0'
           onClick={() => Navigate('/forgot-password')}
         >
           <p>forgot password?</p>

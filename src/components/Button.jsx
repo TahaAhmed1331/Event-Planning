@@ -1,18 +1,21 @@
 import React from 'react';
 
 const Button = ({ text, classname, variant, icon, onClick }) => {
-  let baseStyles = 'py-3 px-6 my-1 w-full font-semibold';
+  let baseStyles =
+    'py-3 px-6 my-1 text-base font-semibold hover:scale-[0.98] duration-200 hover:brightness-95';
   let variantStyles = '';
 
   switch (variant) {
     case 'capsule':
-      variantStyles = 'bg-Yellow  text-secondary rounded-[50px]';
+      variantStyles = 'lightGradientYellow text-secondary rounded-[50px]';
       break;
     case 'primary':
-      variantStyles = 'bg-primary text-textHeading rounded-lg';
+      variantStyles =
+        'bg-[linear-gradient(to_right,var(--color-primary),#9b7cf9)] text-textHeading rounded-lg';
       break;
     case 'secondary':
-      variantStyles = 'bg-whiteShade rounded-lg text-secondary';
+      variantStyles =
+        'bg-[linear-gradient(to_right,var(--color-whiteShade),#ffffff)] text-secondary rounded-lg';
       break;
     default:
       variantStyles = '';
@@ -21,7 +24,7 @@ const Button = ({ text, classname, variant, icon, onClick }) => {
   return (
     <button
       className={`${baseStyles} ${variantStyles} ${classname} ${
-        icon && 'flex flex-row justify-center item-center gap-3'
+        icon && 'flex flex-row justify-center items-center gap-3'
       } cursor-pointer`}
       onClick={onClick}
     >

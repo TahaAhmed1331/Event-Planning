@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Inputfield from '../components/Inputfield';
 import Button from '../components/Button';
 import { AlignHorizontalDistributeCenter, Eye, EyeOff } from 'lucide-react';
+import Typography from '../components/Typography';
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,9 +17,12 @@ const SignUp = () => {
           </div>
         </div>
         <div className='w-[65%] py-2 gap-6 flex-col flex justify-start items-center'>
-          <h1 className='text-3xl capitalize font-normal text-textHeading'>
+          <Typography
+            variant={'heading'}
+            className={'capitalize text-textHeading'}
+          >
             Create an account
-          </h1>
+          </Typography>
           <Inputfield
             label={'Name'}
             placeholder={'enter your name'}
@@ -36,6 +40,7 @@ const SignUp = () => {
             icon={showPassword ? <Eye /> : <EyeOff />}
             onClick={() => setShowPassword(!showPassword)}
           />
+
           <Inputfield
             label={'Confirm Password'}
             placeholder={'re-enter your password'}
@@ -45,6 +50,7 @@ const SignUp = () => {
           />
           <Button
             text={'Submit'}
+            classname={'!w-full'}
             variant={'capsule'}
             onClick={() => console.log('clicked')}
           ></Button>
