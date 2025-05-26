@@ -65,6 +65,7 @@ const Home = () => {
             {dashboardActivity.map((item, idx) => {
               return (
                 <GlassCard
+                  key={idx}
                   Dashboard={true}
                   delay={idx == 1 ? '0s' : idx == 0 ? '2s' : '4s'}
                   id={item.id}
@@ -78,9 +79,10 @@ const Home = () => {
         </div>
         <div className='w-[32%] h-full rounded-2xl p-1 overflow-hidden'>
           <Calender markedDates={markedDates} />
-          {ProgressBar_Dashboard.map((bar) => {
+          {ProgressBar_Dashboard.map((bar, idx) => {
             return (
               <ProgressBar
+                key={idx}
                 label={bar.label}
                 total={bar.total}
                 obtain={bar.obtain}

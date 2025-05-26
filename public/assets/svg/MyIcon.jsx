@@ -2,7 +2,7 @@ const Back = () => (
   <svg
     width='130'
     viewBox='0 0 370.16033755274265 73.82696008313292'
-    class='looka-1j8o68f'
+    className='looka-1j8o68f'
   >
     <defs id='SvgjsDefs4948'></defs>
     <g
