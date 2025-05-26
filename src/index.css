@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+
 @theme {
   --color-primary: #703bf7; /* Vibrant Purple - keep this! */
   --color-lightBorder: #f5f5f5f5; /*Light border color*/
@@ -261,4 +262,15 @@
 
 .animate-bounce-slow {
   animation: bounce-slow 3s infinite;
+}
+
+
+/* Hide vertical scrollbar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
 }
