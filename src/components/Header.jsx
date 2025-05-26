@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Typography from './Typography';
 import Button from './Button';
 
@@ -7,26 +7,55 @@ const Header = ({
   headingTextClassName,
   conatinerClassName,
   buttons,
+  scrollContainerRef,
 }) => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const el = scrollContainerRef?.current;
+    if (!el) {
+      console.warn('No scroll container in Header!');
+      return;
+    }
+
+    const handleScroll = () => {
+      const isScrolled = el.scrollTop > 10;
+      setScrolled(isScrolled);
+      console.log('Scrolled state: ', isScrolled);
+    };
+
+    el.addEventListener('scroll', handleScroll);
+    return () => el.removeEventListener('scroll', handleScroll);
+  }, [scrollContainerRef?.current]);
+
   return (
-    <div className={`py-3 ${conatinerClassName}`}>
+    <div
+      className={`py-3 ${conatinerClassName} sticky z-[99] transition-all duration-100  top-0 ${
+        scrolled && 'bg-white rounded-3xl shadow-md -mx-6 px-6'
+      }`}
+    >
       <Typography
         variant='lightHeading'
-        className={`border-b-[1.5px] text-textHeading text-shadow-lg border-b-lightBorder flex flex-row items-center justify-between pb-5 ${headingTextClassName}`}
+        className={` ${headingTextClassName} border-b-[1.5px] ${
+          scrolled
+            ? 'text-BlackText text-shadow-none border-none !font-semibold'
+            : 'text-textHeading text-shadow-lg border-b-lightBorder'
+        } pb-4  flex flex-row items-center !justify-between ${`${
+          !buttons && 'py-3'
+        }`}`}
       >
         {headingText}
         {buttons && (
           <div>
-            {buttons.map((button, idx) => {
-              return (
-                <Button
-                  classname='!text-sm capitalize'
-                  text={button.label}
-                  variant={button.variant}
-                  onClick={button.onClick}
-                ></Button>
-              );
-            })}
+            {buttons.map((button, idx) => (
+              <Button
+                key={idx}
+                classname='!text-sm capitalize !my-0'
+                text={button.label}
+                variant={button.variant}
+                onClick={button.onClick}
+              />
+            ))}
           </div>
         )}
       </Typography>

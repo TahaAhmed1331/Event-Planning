@@ -2,30 +2,26 @@ import React, { useState } from 'react';
 import Inputfield from '../components/Inputfield';
 import { AlignHorizontalDistributeCenter, Eye, EyeOff } from 'lucide-react';
 import Button from '../components/Button';
-import Dropdown from '../components/Dropdown';
 import Typography from '../components/Typography';
 import { useNavigate } from 'react-router-dom';
+import Back from '../../public/assets/svg/MyIcon';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [selected, setSelected] = useState(null);
-
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
 
   return (
-    <div className='w-full h-screen bg-theme-gradient p-2'>
-      {' '}
+    <div className='w-full relative  h-screen bg-theme-gradient p-2'>
       <div
         className='w-full h-full rounded- flex flex-row p-6 justify-evenly items-center
-      bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
-      '
+bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
+'
       >
-        <div className='w-[50%] h-full flex flex-col justify-start items-center p-2'>
-          <div className='w-full '>
-            <div className='py-2 text-textHeading w-fit px-4 font-light text-lg border border-textPara rounded-full'>
-              Crexito
-            </div>
-          </div>
+        <div className='w-[50%] h-full flex flex-col justify-center items-center p-2'>
           <div className='w-[65%] py-2 gap-4 flex-col flex justify-start items-center'>
             <Typography
               variant={'heading'}
@@ -37,6 +33,10 @@ const Login = () => {
               label={'Email'}
               placeholder={'enter your email'}
               type={'email'}
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
             />
             <Inputfield
               type={!showPassword ? 'password' : 'text'}
@@ -45,24 +45,20 @@ const Login = () => {
               forgetpass={true}
               icon={showPassword ? <Eye /> : <EyeOff />}
               onClick={() => setShowPassword(!showPassword)}
-            />
-
-            <Dropdown
-              label='Role'
-              placeholder='Chose your role'
-              options={[
-                { label: 'Option 1', value: 'option1' },
-                { label: 'Option 2', value: 'option2' },
-              ]}
-              value={selected}
-              onChange={(option) => setSelected(option)}
+              value={formData.password}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
             />
 
             <Button
               text={'Submit'}
               variant={'capsule'}
-              classname='!w-full'
-              onClick={() => navigate('/')}
+              classname='!w-full !mt-6'
+              onClick={() => {
+                console.log(formData);
+                navigate('/');
+              }}
             ></Button>
 
             <Button
@@ -72,6 +68,13 @@ const Login = () => {
               variant='secondary'
               icon={<AlignHorizontalDistributeCenter />}
             ></Button>
+            <Typography
+              variant='sm'
+              className='text-white cursor-pointer'
+              onClick={() => navigate('/sign-up')}
+            >
+              Create new account ?
+            </Typography>
           </div>
         </div>
         <div className='w-[35%] rounded-4xl relative h-full'>
@@ -127,6 +130,9 @@ const Login = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className='absolute top-10 left-10 py-2 text-textHeading w-fit px-4 font-light text-lg bg-textHeading rounded-full'>
+        <Back />
       </div>
     </div>
   );

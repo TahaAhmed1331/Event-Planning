@@ -6,7 +6,7 @@ export default function Layout() {
     <div>
       <main className='theme-layout-gradient relative w-full flex flex-row justify-between gap-2 h-screen overflow-hidden p-2'>
         <div
-          className='BallShadow_1 w-96 h-96 rounded-full transform opacity-80 -translate-y-1/2 -translate-x-1/2 bg-gradient-to-br from-Accent to-Yellow  absolute top-[20%] left-[20%]'
+          className='BallShadow_1 w-96 h-96 rounded-full transform opacity-80 z -translate-y-1/2 -translate-x-1/2 bg-gradient-to-br from-Accent to-Yellow  absolute top-[20%] left-[20%]'
           style={{ animation: 'ball_1_animation 20s infinite linear' }}
         />
         <div

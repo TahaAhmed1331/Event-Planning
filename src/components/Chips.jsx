@@ -1,35 +1,20 @@
-import React from 'react';
-
-const Chip = ({
-  children,
-  icon,
-  className = '',
-  variant = 'default',
-  tag = 'span',
-}) => {
-  const baseStyles = 'inline-flex items-center gap-1 rounded-full text-sm font-medium';
-
-  let variantStyles = '';
-  switch (variant) {
-    case 'project':
-      variantStyles = 'px-4 py-1 bg-blue-400 text-black';
-      break;
-    case 'user':
-      variantStyles = 'px-2 py-1 bg-green-500 text-white';
-      break;
-    case 'default':
-    default:
-      variantStyles = 'px-4 py-2 bg-gray-200 text-black';
-      break;
-  }
-
-  const Tag = tag;
-
+const Chips = ({ label, value, color }) => {
+  const colorClasses = {
+    red: 'border-red-600 text-red-600 bg-red-200',
+    blue: 'border-blue-600 text-blue-600 bg-blue-200',
+    green: 'border-green-600 text-green-600 bg-green-200',
+    yellow: 'border-yellow-600 text-yellow-600 bg-yellow-200',
+    // add more colors here
+  };
   return (
-    <Tag className={`${baseStyles} ${variantStyles} ${className}`}>
-      {icon && icon}{children}
-    </Tag>
+    <div
+      className={`
+    flex justify-center items-center ${colorClasses[color] || ''}
+      border-1 px-4 py-1 rounded-full text-sm`}
+    >
+      {label ? label + value : value}
+    </div>
   );
 };
 
-export default Chip;
+export default Chips;

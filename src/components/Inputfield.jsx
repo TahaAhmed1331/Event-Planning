@@ -5,12 +5,14 @@ const Inputfield = ({
   icon: Icon,
   name,
   onClick,
+  onChange,
   label,
   type,
   placeholder,
   value,
   error,
   forgetpass,
+  containerClassName,
 }) => {
   const Navigate = useNavigate();
 
@@ -28,10 +30,11 @@ const Inputfield = ({
           name={name}
           id={name}
           placeholder={placeholder}
-          className='w-full py-[0.6rem] focus:bg-focusBlue outline-none 
+          className={`w-full py-[0.6rem] focus:bg-focusBlue outline-none 
           placeholder:capitalize px-4 border-none rounded-full 
-          backdrop-blur-3xl bg-[#f5f3f1] text-sm'
+          backdrop-blur-3xl bg-[#f5f3f1] text-sm ${containerClassName}`}
           value={value}
+          onChange={onChange}
         />
         {Icon && (
           <div

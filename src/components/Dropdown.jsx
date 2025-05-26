@@ -29,7 +29,7 @@ const Dropdown = ({
         onClick={toggleDropdown}
         className='w-full py-[0.6rem] px-4 my-1 rounded-full backdrop-blur-3xl bg-[#f5f3f1] text-sm text-gray-700 cursor-pointer flex items-center justify-between'
       >
-        <span className='capitalize'>{value ? value.label : placeholder}</span>
+        <span className='capitalize'>{value || placeholder}</span>
         <span
           className={`transition-transform duration-300 text-gray-500 ${
             isOpen ? 'rotate-180' : 'rotate-0'
@@ -48,8 +48,7 @@ const Dropdown = ({
                 idx === 0 ? '' : 'border-t-textPara border-t'
               }`}
             >
-              {console.log(idx)}
-              {option.label}
+              {option}
             </div>
           ))}
         </div>
