@@ -1,8 +1,17 @@
 import React from 'react';
 
-const Button = ({ text, classname, variant, icon, onClick }) => {
-  let baseStyles =
-    'py-3 px-6 my-1 text-base font-semibold hover:scale-[0.98] duration-200 hover:brightness-95';
+const Button = ({
+  text,
+  classname,
+  variant,
+  icon,
+  onClick,
+  type,
+  disabled,
+}) => {
+  let baseStyles = `py-3 px-6 my-1 text-base font-semibold hover:scale-[0.98] duration-200 hover:brightness-95 ${
+    disabled && 'opacity-50 hover:scale-[1] hover:brightness-100'
+  }`;
   let variantStyles = '';
 
   switch (variant) {
@@ -27,6 +36,8 @@ const Button = ({ text, classname, variant, icon, onClick }) => {
         icon && 'flex flex-row justify-center items-center gap-3'
       } cursor-pointer`}
       onClick={onClick}
+      type={type && type}
+      disabled={disabled}
     >
       {icon && icon}
       {text}

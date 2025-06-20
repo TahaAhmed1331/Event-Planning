@@ -1,4 +1,5 @@
 import Chips from '../Chips';
+import Tag from '../Tag';
 import Typography from '../Typography';
 
 const ProjectCards = ({
@@ -53,7 +54,7 @@ const ProjectCards = ({
                     </Typography>
                     <Typography
                       variant='paragraph'
-                      className='!text-[#181818e3]'
+                      className='!text-[#181818e3] !leading-5'
                     >
                       {description}
                     </Typography>
@@ -63,21 +64,9 @@ const ProjectCards = ({
 
               {/* Bottom: Chips */}
               <div className='mt-3 flex flex-wrap gap-2'>
-                <Chips
-                  label='Budget: ₹'
-                  value={budget}
-                  color='green'
-                />
-                <Chips
-                  label='Guests: '
-                  value={noOfPeople}
-                  color='blue'
-                />
-                <Chips
-                  label='Type: '
-                  value={eventType}
-                  color='yellow'
-                />
+                <Tag text={`Budget: ₹ ${budget}`} />
+                <Tag text={`Guests: ${noOfPeople}`} />
+                <Tag text={`Type: ${eventType}`} />
               </div>
             </div>
           </div>

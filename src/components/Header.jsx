@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Typography from './Typography';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
 const Header = ({
   headingText,
@@ -8,6 +9,7 @@ const Header = ({
   conatinerClassName,
   buttons,
   scrollContainerRef,
+  link,
 }) => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -46,17 +48,35 @@ const Header = ({
       >
         {headingText}
         {buttons && (
-          <div>
-            {buttons.map((button, idx) => (
-              <Button
-                key={idx}
-                classname='!text-sm capitalize !my-0'
-                text={button.label}
-                variant={button.variant}
-                onClick={button.onClick}
-              />
-            ))}
-          </div>
+          <>
+            {buttons.map((button, idx) => {
+              return button.link ? (
+                <Link
+                  key={idx}
+                  to={button.link}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='p-0 m-0 box-border -mt-2'
+                >
+                  <Button
+                    key={idx}
+                    classname='!text-sm capitalize !my-0'
+                    text={button.label}
+                    variant={button.variant}
+                    onClick={button.onClick}
+                  />
+                </Link>
+              ) : (
+                <Button
+                  key={idx}
+                  classname='!text-sm capitalize !my-0'
+                  text={button.label}
+                  variant={button.variant}
+                  onClick={button.onClick}
+                />
+              );
+            })}
+          </>
         )}
       </Typography>
     </div>

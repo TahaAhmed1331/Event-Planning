@@ -20,6 +20,19 @@ const SignUp = () => {
     confirmPassword: '',
   });
 
+  const handleSignUp = () => {
+    const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+    const newUser = {
+      ...formData,
+      id: Date.now().toString(),
+      proposals: [],
+    };
+
+    localStorage.setItem('users', JSON.stringify([...existingUsers, newUser]));
+    navigate('/login');
+  };
+
   return (
     <div className='w-full h-screen relative bg-theme-gradient p-2'>
       <div
@@ -83,7 +96,7 @@ bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
               text={'Submit'}
               classname={'!w-full !mt-6'}
               variant={'capsule'}
-              onClick={() => console.log(formData)}
+              onClick={() => handleSignUp()}
             ></Button>
             <Typography
               variant='sm'

@@ -1,143 +1,182 @@
 export const projectCards = [
   {
+    id: 'p1',
     eventTitle: 'Wedding Reception',
     userName: 'Ayesha Khan',
     eventType: 'Wedding',
-    timeOfDay: 'night',
+    shift: 'night',
+    eventDuration: '6 hours',
     eventDate: '2025-05-20',
     location: 'Lahore, Pakistan',
-    referenceImage:
-      'https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg?cs=srgb&dl=pexels-fu-zhichao-176355-587741.jpg&fm=jpg',
+    referenceImage: [
+      'https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg',
+      'https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg',
+      'https://images.pexels.com/photos/265920/pexels-photo-265920.jpeg',
+    ],
     numberOfGuests: 200,
     budgetRange: '$3000 - $5000',
     description:
-      'A grand wedding reception with a royal theme, featuring a lavish banquet, elegant floral arrangements, and live music performances. Guests enjoyed a magical evening filled with dancing, gourmet cuisine, and unforgettable moments.',
+      'A grand wedding reception with a royal theme, featuring a lavish banquet, elegant floral arrangements, and live music performances.',
   },
   {
+    id: 'p2',
     eventTitle: 'Birthday Bash',
     userName: 'Ali Raza',
     eventType: 'Birthday',
-    timeOfDay: 'day',
+    shift: 'day',
+    eventDuration: '4 hours',
     eventDate: '2025-06-12',
     location: 'Karachi, Pakistan',
-    referenceImage:
+    referenceImage: [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMBGyyUscWE96MpXjUWmQeGWeuf02iKZxAuMzg8npL-m8zkw4z6FJdAXRVHmbgqXWONLs&usqp=CAU',
+      'https://images.pexels.com/photos/1024725/pexels-photo-1024725.jpeg',
+      'https://images.pexels.com/photos/2072181/pexels-photo-2072181.jpeg',
+    ],
     numberOfGuests: 50,
     budgetRange: '$500 - $1000',
     description:
-      'A grand wedding reception with a royal theme, featuring a lavish banquet, elegant floral arrangements, and live music performances. Guests enjoyed a magical evening filled with dancing, gourmet cuisine, and unforgettable moments.',
+      'A lively birthday bash filled with games, music, food, and laughter for friends and family.',
   },
-
   {
+    id: 'p3',
     eventTitle: 'Corporate Meetup',
     userName: 'Zainab Tariq',
     eventType: 'Corporate',
-    timeOfDay: 'day',
+    shift: 'day',
+    eventDuration: '5 hours',
     eventDate: '2025-07-01',
     location: 'Islamabad, Pakistan',
-    referenceImage:
+    referenceImage: [
       'https://aaft.com/blog/wp-content/uploads/2024/03/46268-1024x683.jpg',
+      'https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg',
+    ],
     numberOfGuests: 120,
     budgetRange: '$2000 - $4000',
     description:
-      'A grand wedding reception with a royal theme, featuring a lavish banquet, elegant floral arrangements, and live music performances. Guests enjoyed a magical evening filled with dancing, gourmet cuisine, and unforgettable moments.',
+      'A formal corporate meetup for networking and collaboration with key stakeholders and professionals.',
   },
   {
+    id: 'p4',
     eventTitle: 'Engagement Party',
     userName: 'Hamza Sheikh',
     eventType: 'Wedding',
-    timeOfDay: 'night',
+    shift: 'night',
+    eventDuration: '4 hours',
     eventDate: '2025-08-18',
     location: 'Rawalpindi, Pakistan',
-    referenceImage:
+    referenceImage: [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgPVnNptLusw9xlFcC6s1QzwlxPtFRoBNFaQ&s',
+      'https://images.pexels.com/photos/759824/pexels-photo-759824.jpeg',
+    ],
     numberOfGuests: 80,
     budgetRange: '$1500 - $3000',
     description:
-      'A grand wedding reception with a royal theme, featuring a lavish banquet, elegant floral arrangements, and live music performances. Guests enjoyed a magical evening filled with dancing, gourmet cuisine, and unforgettable moments.',
+      'A joyful engagement party filled with love, laughter, and the blessing of family and friends.',
   },
   {
+    id: 'p5',
     eventTitle: 'Baby Shower',
     userName: 'Mariam Yousaf',
     eventType: 'Birthday',
-    timeOfDay: 'day',
+    shift: 'day',
+    eventDuration: '3 hours',
     eventDate: '2025-05-25',
     location: 'Faisalabad, Pakistan',
-    referenceImage:
+    referenceImage: [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCz8x-Uc-CL6xxlABiVnc1Gq8m59Ys8yqfKg&s',
+      'https://images.pexels.com/photos/266487/pexels-photo-266487.jpeg',
+    ],
     numberOfGuests: 40,
     budgetRange: '$700 - $1200',
     description:
-      'A grand wedding reception with a royal theme, featuring a lavish banquet, elegant floral arrangements, and live music performances. Guests enjoyed a magical evening filled with dancing, gourmet cuisine, and unforgettable moments.',
+      'A cheerful baby shower celebrating the upcoming arrival of a new family member.',
   },
   {
+    id: 'p6',
     eventTitle: 'Annual Dinner',
     userName: 'Bilal Hussain',
     eventType: 'Corporate',
-    timeOfDay: 'night',
+    shift: 'night',
+    eventDuration: '6 hours',
     eventDate: '2025-09-05',
     location: 'Multan, Pakistan',
-    referenceImage:
+    referenceImage: [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt5Yg7ov4AT7-oG7TrqoJ84HD1E-9XoOOVyw&s',
+      'https://images.pexels.com/photos/556666/pexels-photo-556666.jpeg',
+    ],
     numberOfGuests: 250,
     budgetRange: '$4000 - $7000',
     description:
-      'A grand wedding reception with a royal theme, featuring a lavish banquet, elegant floral arrangements, and live music performances. Guests enjoyed a magical evening filled with dancing, gourmet cuisine, and unforgettable moments.',
+      'An elegant annual corporate dinner with speeches, awards, and fine dining.',
   },
   {
+    id: 'p7',
     eventTitle: 'Graduation Party',
     userName: 'Sarah Ahmed',
     eventType: 'Birthday',
-    timeOfDay: 'day',
+    shift: 'day',
+    eventDuration: '5 hours',
     eventDate: '2025-06-30',
     location: 'Peshawar, Pakistan',
-    referenceImage:
+    referenceImage: [
       'https://www.brides.com/thmb/mMLabNyxZWHgR0D34ZDQDFLkeHc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/plan-fb-15a8b7fb9cb244edbd60d39614c09bfb.jpg',
+    ],
     numberOfGuests: 60,
     budgetRange: '$1000 - $2000',
     description:
-      'A grand wedding reception with a royal theme, featuring a lavish banquet, elegant floral arrangements, and live music performances. Guests enjoyed a magical evening filled with dancing, gourmet cuisine, and unforgettable moments.',
+      'A memorable graduation party marking the transition to a new chapter of life.',
   },
   {
+    id: 'p8',
     eventTitle: 'Nikkah Ceremony',
     userName: 'Usman Javed',
     eventType: 'Wedding',
-    timeOfDay: 'day',
+    shift: 'day',
+    eventDuration: '3 hours',
     eventDate: '2025-07-15',
     location: 'Sialkot, Pakistan',
-    referenceImage:
+    referenceImage: [
       'https://www.qceventplanning.com/blog/wp-content/uploads/2015/12/Copy-of-Event-Feature-Event-Logo-Overlay-100x100-9.png',
+    ],
     numberOfGuests: 150,
     budgetRange: '$2500 - $4500',
     description:
-      'A grand wedding reception with a royal theme, featuring a lavish banquet, elegant floral arrangements, and live music performances. Guests enjoyed a magical evening filled with dancing, gourmet cuisine, and unforgettable moments.',
+      'A beautiful Nikkah ceremony celebrated with close family and friends in a traditional setting.',
   },
   {
+    id: 'p9',
     eventTitle: 'Team Building Event',
     userName: 'Nida Farooq',
     eventType: 'Corporate',
-    timeOfDay: 'day',
+    shift: 'day',
+    eventDuration: 'Full Day',
     eventDate: '2025-08-10',
     location: 'Hyderabad, Pakistan',
-    referenceImage:
+    referenceImage: [
       'https://tripleseat.com/wp-content/uploads/2022/08/event-coordinator.jpg',
+      'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg',
+    ],
     numberOfGuests: 90,
     budgetRange: '$1800 - $3200',
     description:
-      'A grand wedding reception with a royal theme, featuring a lavish banquet, elegant floral arrangements, and live music performances. Guests enjoyed a magical evening filled with dancing, gourmet cuisine, and unforgettable moments.',
+      'A full-day team-building event with activities to strengthen collaboration and morale.',
   },
   {
+    id: 'p10',
     eventTitle: 'Anniversary Celebration',
     userName: 'Rehan Ali',
     eventType: 'Wedding',
-    timeOfDay: 'night',
+    shift: 'night',
+    eventDuration: '5 hours',
     eventDate: '2025-10-20',
     location: 'Quetta, Pakistan',
-    referenceImage:
-      'https://wp-media-partyslate.imgix.net/2024/06/478608-scaled.jpg?auto=compress%2Cformat&fit=scale&h=840&ixlib=php-3.3.1&w=1260&wpsize=huge',
+    referenceImage: [
+      'https://wp-media-partyslate.imgix.net/2024/06/478608-scaled.jpg',
+      'https://images.pexels.com/photos/931796/pexels-photo-931796.jpeg',
+    ],
     numberOfGuests: 70,
     budgetRange: '$1200 - $2500',
     description:
-      'A grand wedding reception with a royal theme, featuring a lavish banquet, elegant floral arrangements, and live music performances. Guests enjoyed a magical evening filled with dancing, gourmet cuisine, and unforgettable moments.',
+      'An intimate anniversary celebration filled with joy, nostalgia, and love.',
   },
 ];

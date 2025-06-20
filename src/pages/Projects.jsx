@@ -1,13 +1,12 @@
 import { useRef } from 'react';
 import Header from '../components/Header';
-import Typography from '../components/Typography';
-import { Moon, UsersRound, CircleDollarSign } from 'lucide-react';
-import Chips from '../components/Chips';
 import { projectCards } from '../constants/Project';
 import ProjectCards from '../components/Project/ProjectCards';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
   const scrollRef = useRef(null);
+
   return (
     <div
       ref={scrollRef}
@@ -20,17 +19,23 @@ const Projects = () => {
       />
       <div className=' p-1 mt-10 flex gap-5 flex-col items-center justify-center '>
         {projectCards.map((project, index) => (
-          <ProjectCards
-            ProjectPageCard={true}
-            refernceImage={project.referenceImage}
-            projectTitle={project.eventTitle}
-            userName={project.userName}
-            eventDate={project.eventDate}
-            eventType={project.eventType}
-            noOfPeople={project.numberOfGuests}
-            description={project.description}
-            budget={project.budgetRange}
-          />
+          <Link
+            to={`/project/${project.id}`}
+            key={index}
+            className='!w-full'
+          >
+            <ProjectCards
+              ProjectPageCard={true}
+              refernceImage={project.referenceImage[0]}
+              projectTitle={project.eventTitle}
+              userName={project.userName}
+              eventDate={project.eventDate}
+              eventType={project.eventType}
+              noOfPeople={project.numberOfGuests}
+              description={project.description}
+              budget={project.budgetRange}
+            />
+          </Link>
         ))}
       </div>
     </div>

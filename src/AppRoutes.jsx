@@ -11,6 +11,8 @@ import Profile from './pages/Profile';
 import Chats from './pages/Chats';
 import History from './pages/History';
 import Earnings from './pages/Earnings';
+import ProjectInfo from './pages/ProjectInfo';
+import ProposalSent from './pages/ProposalSent';
 
 const AppRoutes = () => {
   return (
@@ -45,6 +47,14 @@ const AppRoutes = () => {
         <Route
           path='projects'
           element={<Projects />}
+        />
+        <Route
+          path={`project/:id`}
+          element={<ProjectInfo />}
+        />
+        <Route
+          path={`project/sent-proposal/:id`}
+          element={<ProposalSent />}
         />
         <Route
           path='chats'

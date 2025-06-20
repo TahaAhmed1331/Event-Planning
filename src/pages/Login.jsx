@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import Typography from '../components/Typography';
 import { useNavigate } from 'react-router-dom';
 import Back from '../../public/assets/svg/MyIcon';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +14,25 @@ const Login = () => {
     email: '',
     password: '',
   });
+
+  const handleLogin = () => {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    const foundUser = users.find(
+      (user) =>
+        user.email === formData.email.trim() &&
+        user.password === formData.password
+    );
+
+    if (foundUser) {
+      // Save as logged-in user
+      localStorage.setItem('currentUser', JSON.stringify(foundUser));
+      toast.success('Login successful!');
+      navigate('/');
+    } else {
+      toast.error('Invalid email or password');
+    }
+  };
 
   return (
     <div className='w-full relative  h-screen bg-theme-gradient p-2'>
@@ -55,10 +75,7 @@ bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
               text={'Submit'}
               variant={'capsule'}
               classname='!w-full !mt-6'
-              onClick={() => {
-                console.log(formData);
-                navigate('/');
-              }}
+              onClick={() => handleLogin()}
             ></Button>
 
             <Button

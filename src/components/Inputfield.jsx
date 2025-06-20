@@ -15,6 +15,7 @@ const Inputfield = ({
   containerClassName,
 }) => {
   const Navigate = useNavigate();
+  const textarea = type === 'textarea';
 
   return (
     <div className={`w-full relative cursor-pointer my-[0.1rem]`}>
@@ -25,17 +26,35 @@ const Inputfield = ({
         {label}
       </label>
       <div className=' relative'>
-        <input
-          type={type}
-          name={name}
-          id={name}
-          placeholder={placeholder}
-          className={`w-full py-[0.6rem] focus:bg-focusBlue outline-none 
-          placeholder:capitalize px-4 border-none rounded-full 
-          backdrop-blur-3xl bg-[#f5f3f1] text-sm ${containerClassName}`}
-          value={value}
-          onChange={onChange}
-        />
+        {textarea ? (
+          <textarea
+            name={name}
+            id={name}
+            rows={1}
+            placeholder={placeholder}
+            className={`w-full px-8 py-6 min-h-[40vh] resize-none text-sm rounded-3xl focus:bg-focusBlue 
+            outline-none backdrop-blur-3xl bg-[#f5f3f1] border-none ${containerClassName}`}
+            value={value}
+            onChange={(e) => {
+              e.target.style.height = 'auto';
+              e.target.style.height = `${e.target.scrollHeight}px`;
+              onChange?.(e);
+            }}
+          />
+        ) : (
+          <input
+            type={type}
+            name={name}
+            id={name}
+            placeholder={placeholder}
+            className={`w-full py-[0.6rem] focus:bg-focusBlue outline-none 
+            placeholder:capitalize px-4 border-none rounded-full 
+            backdrop-blur-3xl bg-[#f5f3f1] text-sm ${containerClassName}`}
+            value={value}
+            onChange={onChange}
+          />
+        )}
+
         {Icon && (
           <div
             onClick={onClick}

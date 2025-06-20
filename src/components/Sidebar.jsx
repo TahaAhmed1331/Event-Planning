@@ -3,6 +3,7 @@ import Typography from './Typography';
 import { sidebarItems } from '../constants/Layout';
 import { useNavigate } from 'react-router-dom';
 import Back from '../../public/assets/svg/MyIcon';
+import { toast } from 'react-toastify';
 
 const Sidebar = ({ className }) => {
   const navigate = useNavigate();
@@ -13,6 +14,8 @@ const Sidebar = ({ className }) => {
   }, []);
 
   const LogOut = (path) => {
+    localStorage.removeItem('currentUser');
+    toast.success('Logout successful');
     path === '/logout' && navigate('/login');
   };
 
@@ -22,9 +25,10 @@ const Sidebar = ({ className }) => {
     >
       <div className=' p-1 flex flex-col pt-5 justify-between h-full items-start'>
         <div className='flex flex-col justify-start w-full items-start gap-3'>
-          <div className='bg-gradient-to-tr from-[#071937] to-[#414E66] items-center flex justify-center px-3 py-2 w-fit mx-auto rounded-full overflow-hidden'>
+          <div className=' bg-gradient-to-tr from-[#071937] to-[#414E66] items-center flex justify-center px-3 py-2 w-fit mx-auto rounded-full overflow-hidden'>
             <Back />
           </div>
+
           {sidebarItems.slice(0, 5).map((item, id) => {
             return (
               <div
@@ -61,7 +65,7 @@ const Sidebar = ({ className }) => {
                 onClick={() => {
                   navigate(item.path);
                   setIsActive(item.path);
-                  LogOut(item.path);
+                  item.path === '/logout' && LogOut(item.path);
                 }}
               >
                 <span className='text-textHeading'>{item.icon}</span>

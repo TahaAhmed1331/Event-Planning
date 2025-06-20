@@ -28,11 +28,13 @@ const Crousal = ({ cards, viewPerPage }) => {
     >
       {groupedSlides.map((group, index) => (
         <SwiperSlide key={index}>
-          <div className='w-full flex gap-6'>
+          <div className='w-full flex gap-6 max-h-full'>
             {group.map((card, idx) => (
               <div
                 key={idx}
-                className={`${viewPerPage ? 'w-full' : 'w-1/3'}`}
+                className={`${
+                  viewPerPage ? 'w-full' : 'w-1/3'
+                } overflow-hidden rounded-3xl`}
               >
                 {card}
               </div>

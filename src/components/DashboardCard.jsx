@@ -1,6 +1,7 @@
 import Typography from './Typography';
 import Chips from './Chips';
 import RatingStar from './RatingStar';
+import Tag from './Tag';
 
 const GlassCard = ({
   //for dashbaord card
@@ -161,21 +162,9 @@ const GlassCard = ({
 
               {/* Chips Section */}
               <div className='flex flex-wrap gap-2 mt-6'>
-                <Chips
-                  label={'Budget: ₹'}
-                  value={budget}
-                  color={'green'}
-                />
-                <Chips
-                  label={'Guests: '}
-                  value={noOfPeople}
-                  color={'blue'}
-                />
-                <Chips
-                  label={'Type: '}
-                  value={eventType}
-                  color={'yellow'}
-                />
+                <Tag text={`Budget: ₹ ${budget}`} />
+                <Tag text={`Guests: ${noOfPeople}`} />
+                <Tag text={`Type: ${eventType}`} />
               </div>
             </div>
           </div>
