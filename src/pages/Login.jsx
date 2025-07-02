@@ -34,7 +34,7 @@ bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
               label={'Email'}
               placeholder={'enter your email'}
               type={'email'}
-              value={formData.email || null}
+              value={formData.email ?? ''}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
@@ -46,7 +46,7 @@ bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
               forgetpass={true}
               icon={showPassword ? <Eye /> : <EyeOff />}
               onClick={() => setShowPassword(!showPassword)}
-              value={formData.password || null}
+             value={formData.password ?? ''}
               onChange={(e) =>
                 setFormData({ ...formData, password: e.target.value })
               }

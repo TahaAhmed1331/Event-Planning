@@ -3,8 +3,8 @@ import Header from "../components/Header";
 import Typography from "../components/Typography";
 import RatingStar from "../components/RatingStar";
 import ProfileAnalyticsChart from "../components/Profile/ProfileAnalyticsChart";
-import Tag from "../components/tag";
-import { RecentProjectCardData, tagsData } from "../constants/profile";
+import Tag from "../components/Tag";
+ import { RecentProjectCardData } from "../constants/profile";
 import Crousal from "../components/Coursal";
 import ProfileCards from "../components/Profile/ProfileCards";
 import Inputfield from "../components/Inputfield";
@@ -14,26 +14,19 @@ import ImageUploader from "../components/Profile/ImageUploader";
 import AuthContext from "../context/AuthContext";
 
 const Profile = () => {
-  const {user} = useContext(AuthContext)
+  const {user, detailInformation } = useContext(AuthContext)
   const scrollRef = useRef(null);
   const [isEdited, setIsEdited] = useState(false);
 
   const [profileData, setProfileData] = useState({
     profilePhoto:
-      "https://posterjack.ca/cdn/shop/articles/Portriat_Photography_Composition_Tips.jpg?v=1563409841&width=1500",
+      detailInformation.profilePic,
     coverPhoto:
-      "https://timelinecovers.pro/facebook-cover/download/the-day-in-one-image-facebook-cover.jpg",
+      detailInformation.cover,
     name: user.name,
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto nobis modi ullam quo explicabo error dicta, ea magni repudiandae placeat voluptatibus consequatur unde aliquid, culpa soluta quasi reiciendis eius minima!",
-    services: [
-      "wedding",
-      "birthday",
-      "ceremony",
-      "bridal shower",
-      "barat",
-      "mehndi",
-    ],
+     detailInformation.description,
+    services: detailInformation.services,
   });
 
   return (
@@ -107,7 +100,7 @@ const Profile = () => {
       currentImage={profileData.profilePhoto}
       onImageChange={(newImage) =>
         setProfileData((prev) => ({ ...prev, profilePhoto: newImage }))
-      }
+      } 
     />
   ) : (
     <img

@@ -15,17 +15,37 @@ const AuthProvider = ({ children }) => {
     confirmPassword: "",
   });
 
+const [detailInformation, setDetailInformation] = useState(
+  {
+    name: "",
+    description: "",
+    profilePic: "",
+    cover: "",
+    services: [],
+  }
+)
+
+
   const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true); 
 
   // Optional: Load existing user on refresh
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-    if (storedUser) {
-      setUser(storedUser);
-    }
-        setLoading(false);
-  }, []);
+useEffect(() => {
+  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+  const tempUser = JSON.parse(localStorage.getItem("tempUser"));
+
+  if (storedUser) {
+    setUser(storedUser);
+  }
+
+  // If tempUser exists, allow ProtectedRoute to use it (even though we don't set user here)
+  if (!storedUser && tempUser) {
+    // Optional: You can use tempUser in UI if needed
+  }
+
+  setLoading(false);
+}, []);
+
 
   const handleLogin = () => {
     if (!formData?.email || !formData?.password) {
@@ -67,7 +87,8 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ formData, setFormData, handleLogin, logout, user, loading  }}
+      value={{ formData, setFormData, handleLogin, logout, user, setUser,
+         loading, detailInformation, setDetailInformation }}
     >
       {children}
     </AuthContext.Provider>

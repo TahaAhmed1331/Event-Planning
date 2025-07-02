@@ -16,7 +16,9 @@ import ProposalSent from "./pages/ProposalSent";
 import UnprotectedRoute from "./components/Routes/UnProtectedRoute";
 import ProtectedRoute from "./components/Routes/ProtectedRoute";
 import { ProtectedRoutes, PublicRoutes } from "./constants/routes";
-import DetailinformationForm from "./pages/DetailInformationForms";
+import DetailsInformationForms from "./pages/DetailsInformationForms";
+import SignupOnlyRoute from "./components/Routes/SignupOnlyRoute";
+
 
 const AppRoutes = () => {
   return (
@@ -46,6 +48,15 @@ const AppRoutes = () => {
           </UnprotectedRoute>
         }
       />
+     <Route
+  path={PublicRoutes.DETAILS_INFORMATION}
+  element={
+    <SignupOnlyRoute>
+      <DetailsInformationForms />
+    </SignupOnlyRoute>
+  }
+/>
+       
 
       {/* Protected / Nested Routes */}
       <Route path={ProtectedRoutes.HOME} element={<Layout />}>
@@ -57,14 +68,7 @@ const AppRoutes = () => {
             </ProtectedRoute>
           }
         />
-         <Route
-          path={ProtectedRoutes.DETAILS_INFORMATION}
-          element={
-            <ProtectedRoute>
-              <DetailinformationForm />
-            </ProtectedRoute>
-          }
-        />
+         
         <Route
           path={ProtectedRoutes.ABOUT}
           element={

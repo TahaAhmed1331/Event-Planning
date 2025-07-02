@@ -1,7 +1,12 @@
-import React, { useRef } from 'react';
-import { ImagePlus } from 'lucide-react';
+import React, { useRef } from "react";
+import { ImagePlus } from "lucide-react";
 
-const ImageUploader = ({ currentImage, onImageChange, size = 80, isRound = false }) => {
+const ImageUploader = ({
+  currentImage,
+  onImageChange,
+  size = 80,
+  isRound = false,
+}) => {
   const inputRef = useRef();
 
   const handleImageChange = (e) => {
@@ -16,13 +21,19 @@ const ImageUploader = ({ currentImage, onImageChange, size = 80, isRound = false
 
   return (
     <div
-      className={`relative w-full h-full ${isRound ? 'rounded-full' : 'rounded-3xl'} overflow-hidden`}
+      className={`relative w-full h-full ${
+        isRound ? "rounded-full" : "rounded-3xl"
+      } overflow-hidden`}
     >
-      <img
-        src={currentImage}
-        alt="uploaded"
-        className={`w-full h-full object-cover ${isRound ? 'rounded-full' : ''}`}
-      />
+      {currentImage && (
+        <img
+          src={currentImage}
+          alt="uploaded"
+          className={`w-full h-full object-cover ${
+            isRound ? "rounded-full" : ""
+          }`}
+        />
+      )}
       <div
         className="absolute inset-0 z-40 bg-[#0000009a] flex justify-center items-center cursor-pointer"
         onClick={() => inputRef.current.click()}

@@ -7,13 +7,13 @@ import Dropdown from '../components/Dropdown';
 import Back from '../../public/assets/svg/MyIcon';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
+import { ProtectedRoutes, PublicRoutes } from '../constants/routes';
 
 const SignUp = () => {
-  const {formData, setFormData} = useContext(AuthContext)
+  const {formData, setFormData, setUser } = useContext(AuthContext)
   const [showPassword, setShowPassword] = useState(false);
   const [showRePassword, setShowRePassword] = useState(false);
   const [errors, setErrors] = useState({});
-
   const navigate = useNavigate();
 
 
@@ -43,8 +43,13 @@ const handleSignUp = () => {
     proposals: [],
   };
 
-  localStorage.setItem('users', JSON.stringify([...existingUsers, newUser]));
-  navigate('/login');
+    localStorage.setItem('users', JSON.stringify([...existingUsers, newUser]));
+    localStorage.setItem('currentUser', JSON.stringify(newUser)); 
+  localStorage.setItem("tempUser", JSON.stringify(newUser)); 
+  localStorage.setItem("canAccessDetailsPage", "true");
+      navigate(PublicRoutes.DETAILS_INFORMATION);
+
+
 };
 
 
