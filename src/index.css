@@ -19,11 +19,14 @@
   --color-Box: #27203d; /* Lighter dark box backgrounds */
   --color-Accent: #ff6b81; /* Coral Pink (positive, happy) */
   --color-Yellow: #ffd85f; /* Cheerful yellow accent */
+  --color-GoogleYellow: #fbbc05; /* Google yellow accent */
   --color-whiteShade: #f8f8f8; /* Brighter white shade */
   --color-lightBgShade: #f2edf8; /* Very soft purple tint background */
   --color-middleGreen: #14b8a6; /*Teal color sea green touch*/
   --color-focusBlue: #ead8ff; /*Focus blue on inputfield etc*/
   --color-LemonColor: #e0e38b; /*light lemon color */
+  --color-RevenueColor : #6ed9f7; /*Earning page Revenue color*/
+  --color-forestGreen : #4caf50; /*Earning page Expenses color*/
 }
 
 .bg-theme-gradient {
@@ -418,4 +421,14 @@
 .hide-scrollbar {
   -ms-overflow-style: none; /* IE & Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+
+.recharts-legend-icon{
+  display: none;
+
+}
+
+.recharts-legend-item-text{
+  display: none;
 }

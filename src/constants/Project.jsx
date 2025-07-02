@@ -1,6 +1,7 @@
 export const projectCards = [
   {
     id: 'p1',
+    status:'current',
     eventTitle: 'Wedding Reception',
     userName: 'Ayesha Khan',
     eventType: 'Wedding',
@@ -20,6 +21,7 @@ export const projectCards = [
   },
   {
     id: 'p2',
+    status:'current',
     eventTitle: 'Birthday Bash',
     userName: 'Ali Raza',
     eventType: 'Birthday',
@@ -39,6 +41,7 @@ export const projectCards = [
   },
   {
     id: 'p3',
+     status:'current',
     eventTitle: 'Corporate Meetup',
     userName: 'Zainab Tariq',
     eventType: 'Corporate',
@@ -57,6 +60,7 @@ export const projectCards = [
   },
   {
     id: 'p4',
+     status:'pending',
     eventTitle: 'Engagement Party',
     userName: 'Hamza Sheikh',
     eventType: 'Wedding',
@@ -71,10 +75,11 @@ export const projectCards = [
     numberOfGuests: 80,
     budgetRange: '$1500 - $3000',
     description:
-      'A joyful engagement party filled with love, laughter, and the blessing of family and friends.',
+      'A joyful engagement party filled with love, laughter, and the blessing of family and friends .',
   },
   {
     id: 'p5',
+    status:'pending',
     eventTitle: 'Baby Shower',
     userName: 'Mariam Yousaf',
     eventType: 'Birthday',
@@ -93,6 +98,7 @@ export const projectCards = [
   },
   {
     id: 'p6',
+    status:'pending',
     eventTitle: 'Annual Dinner',
     userName: 'Bilal Hussain',
     eventType: 'Corporate',
@@ -111,6 +117,7 @@ export const projectCards = [
   },
   {
     id: 'p7',
+    status :'delivered',
     eventTitle: 'Graduation Party',
     userName: 'Sarah Ahmed',
     eventType: 'Birthday',
@@ -128,6 +135,7 @@ export const projectCards = [
   },
   {
     id: 'p8',
+    status :'delivered',
     eventTitle: 'Nikkah Ceremony',
     userName: 'Usman Javed',
     eventType: 'Wedding',
@@ -145,6 +153,7 @@ export const projectCards = [
   },
   {
     id: 'p9',
+    status :'delivered',
     eventTitle: 'Team Building Event',
     userName: 'Nida Farooq',
     eventType: 'Corporate',
@@ -163,6 +172,7 @@ export const projectCards = [
   },
   {
     id: 'p10',
+    status :'pending',
     eventTitle: 'Anniversary Celebration',
     userName: 'Rehan Ali',
     eventType: 'Wedding',
