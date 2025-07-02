@@ -1,23 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Typography from './Typography';
-import { sidebarItems } from '../constants/Layout';
+import { sidebarItems, sidebarItemsByRole } from '../constants/Layout';
 import { useNavigate } from 'react-router-dom';
 import Back from '../../public/assets/svg/MyIcon';
-import { toast } from 'react-toastify';
+import AuthContext from '../context/AuthContext';
+import Loader from './Loader';
 
 const Sidebar = ({ className }) => {
+  const {logout, user} = useContext(AuthContext)
+  
+  
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState('');
+
 
   useEffect(() => {
     setIsActive(`${window.location.pathname}`);
   }, []);
 
-  const LogOut = (path) => {
-    localStorage.removeItem('currentUser');
-    toast.success('Logout successful');
-    path === '/logout' && navigate('/login');
-  };
+  if (!user) return <Loader />;
+  const role = user.role;
+
+console.log(sidebarItemsByRole[role])
 
   return (
     <div
@@ -29,7 +33,7 @@ const Sidebar = ({ className }) => {
             <Back />
           </div>
 
-          {sidebarItems.slice(0, 5).map((item, id) => {
+          {sidebarItemsByRole[role].slice(0, -3).map((item, id) => {
             return (
               <div
                 key={id}
@@ -54,7 +58,7 @@ const Sidebar = ({ className }) => {
           })}
         </div>
         <div className='flex flex-col justify-start w-full items-start gap-3'>
-          {sidebarItems.slice(-3).map((item, id) => {
+          {sidebarItemsByRole[role].slice(-3).map((item, id) => {
             return (
               <div
                 key={id}
@@ -65,7 +69,7 @@ const Sidebar = ({ className }) => {
                 onClick={() => {
                   navigate(item.path);
                   setIsActive(item.path);
-                  item.path === '/logout' && LogOut(item.path);
+                  item.path === '' && logout();
                 }}
               >
                 <span className='text-textHeading'>{item.icon}</span>

@@ -5,13 +5,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <AppRoutes />
       <ToastContainer
         position='top-right'
         autoClose={1500}
       />
-    </BrowserRouter>
+    </>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Inputfield from '../components/Inputfield';
 import { AlignHorizontalDistributeCenter, Eye, EyeOff } from 'lucide-react';
 import Button from '../components/Button';
@@ -6,33 +6,14 @@ import Typography from '../components/Typography';
 import { useNavigate } from 'react-router-dom';
 import Back from '../../public/assets/svg/MyIcon';
 import { toast } from 'react-toastify';
+import AuthContext from '../context/AuthContext';
 
 const Login = () => {
+
+  const {formData, setFormData, handleLogin} = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-
-  const handleLogin = () => {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-
-    const foundUser = users.find(
-      (user) =>
-        user.email === formData.email.trim() &&
-        user.password === formData.password
-    );
-
-    if (foundUser) {
-      // Save as logged-in user
-      localStorage.setItem('currentUser', JSON.stringify(foundUser));
-      toast.success('Login successful!');
-      navigate('/');
-    } else {
-      toast.error('Invalid email or password');
-    }
-  };
+ 
 
   return (
     <div className='w-full relative  h-screen bg-theme-gradient p-2'>
@@ -53,7 +34,7 @@ bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
               label={'Email'}
               placeholder={'enter your email'}
               type={'email'}
-              value={formData.email}
+              value={formData.email || null}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
@@ -65,7 +46,7 @@ bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
               forgetpass={true}
               icon={showPassword ? <Eye /> : <EyeOff />}
               onClick={() => setShowPassword(!showPassword)}
-              value={formData.password}
+              value={formData.password || null}
               onChange={(e) =>
                 setFormData({ ...formData, password: e.target.value })
               }
@@ -75,7 +56,7 @@ bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
               text={'Submit'}
               variant={'capsule'}
               classname='!w-full !mt-6'
-              onClick={() => handleLogin()}
+              onClick={handleLogin}
             ></Button>
 
             <Button

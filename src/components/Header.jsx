@@ -48,7 +48,7 @@ const Header = ({
       >
         {headingText}
         {buttons && (
-          <>
+          <div className='flex flex-row gap-2 items-center'>
             {buttons.map((button, idx) => {
               return button.link ? (
                 <Link
@@ -76,7 +76,7 @@ const Header = ({
                 />
               );
             })}
-          </>
+          </div>
         )}
       </Typography>
     </div>

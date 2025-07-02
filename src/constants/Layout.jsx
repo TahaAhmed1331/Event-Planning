@@ -48,6 +48,91 @@ export const sidebarItems = [
   {
     icon: <LogOut strokeWidth={1.5} />,
     lable: 'Logout',
-    path: '/logout',
+    path: '',
   },
 ];
+
+
+export const sidebarItemsByRole = {
+  'Event Owner': [
+    {
+      icon: <LayoutDashboard strokeWidth={1.5} />,
+      lable: 'Dashboard',
+      path: '/',
+    },
+    {
+      icon: <LayoutList strokeWidth={1.5} />,
+      lable: 'Projects',
+      path: '/projects',
+    },
+    {
+      icon: <MessageCircle strokeWidth={1.5} />,
+      lable: 'Chats',
+      path: '/chats',
+    },
+    // 👇 History removed for Event Owner
+    {
+      icon: <Wallet strokeWidth={1.5} />,
+      lable: 'Earnings',
+      path: '/earnings',
+    },
+    {
+      icon: <UserRoundPen strokeWidth={1.5} />,
+      lable: 'Profile',
+      path: '/profile',
+    },
+    {
+      icon: <Cog strokeWidth={1.5} />,
+      lable: 'Settings',
+      path: '/settings',
+    },
+    {
+      icon: <LogOut strokeWidth={1.5} />,
+      lable: 'Logout',
+      path: '',
+    },
+  ],
+
+  'Event Planning Agency': [
+    {
+      icon: <LayoutDashboard strokeWidth={1.5} />,
+      lable: 'Dashboard',
+      path: '/',
+    },
+    {
+      icon: <LayoutList strokeWidth={1.5} />,
+      lable: 'Projects',
+      path: '/projects',
+    },
+    {
+      icon: <MessageCircle strokeWidth={1.5} />,
+      lable: 'Chats',
+      path: '/chats',
+    },
+    {
+      icon: <GalleryVerticalEnd strokeWidth={1.5} />,
+      lable: 'History',
+      path: '/history',
+    },
+    {
+      icon: <Wallet strokeWidth={1.5} />,
+      lable: 'Earnings',
+      path: '/earnings',
+    },
+    {
+      icon: <UserRoundPen strokeWidth={1.5} />,
+      lable: 'Profile',
+      path: '/profile',
+    },
+    {
+      icon: <Cog strokeWidth={1.5} />,
+      lable: 'Settings',
+      path: '/settings',
+    },
+    {
+      icon: <LogOut strokeWidth={1.5} />,
+      lable: 'Logout',
+      path: '',
+    },
+  ],
+};

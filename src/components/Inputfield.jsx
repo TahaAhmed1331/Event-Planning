@@ -19,12 +19,13 @@ const Inputfield = ({
 
   return (
     <div className={`w-full relative cursor-pointer my-[0.1rem]`}>
+     {label && 
       <label
         htmlFor={name}
         className='text-textPara text-sm px-4 '
       >
         {label}
-      </label>
+      </label>}
       <div className=' relative'>
         {textarea ? (
           <textarea

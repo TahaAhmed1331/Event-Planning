@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Inputfield from '../components/Inputfield';
 import Button from '../components/Button';
 import { Eye, EyeOff } from 'lucide-react';
@@ -6,32 +6,47 @@ import Typography from '../components/Typography';
 import Dropdown from '../components/Dropdown';
 import Back from '../../public/assets/svg/MyIcon';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
 
 const SignUp = () => {
+  const {formData, setFormData} = useContext(AuthContext)
   const [showPassword, setShowPassword] = useState(false);
   const [showRePassword, setShowRePassword] = useState(false);
+  const [errors, setErrors] = useState({});
+
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    role: '',
-    password: '',
-    confirmPassword: '',
-  });
 
-  const handleSignUp = () => {
-    const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
 
-    const newUser = {
-      ...formData,
-      id: Date.now().toString(),
-      proposals: [],
-    };
+const handleSignUp = () => {
+  const newErrors = {};
 
-    localStorage.setItem('users', JSON.stringify([...existingUsers, newUser]));
-    navigate('/login');
+  if (!formData.name) newErrors.name = 'Name is required';
+  if (!formData.email) newErrors.email = 'Email is required';
+  if (!formData.role) newErrors.role = 'Role is required';
+  if (!formData.password) newErrors.password = 'Password is required';
+  if (!formData.confirmPassword) newErrors.confirmPassword = 'Confirm your password';
+  if (formData.password !== formData.confirmPassword)
+    newErrors.confirmPassword = 'Passwords do not match';
+
+  // If any errors, prevent submission
+  if (Object.keys(newErrors).length > 0) {
+    setErrors(newErrors);
+    return;
+  }
+
+  // All good → proceed with sign up
+  const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+  const newUser = {
+    ...formData,
+    id: Date.now().toString(),
+    proposals: [],
   };
+
+  localStorage.setItem('users', JSON.stringify([...existingUsers, newUser]));
+  navigate('/login');
+};
+
 
   return (
     <div className='w-full h-screen relative bg-theme-gradient p-2'>
@@ -49,6 +64,7 @@ bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
               Create an account
             </Typography>
             <Inputfield
+             error={errors.name}
               label={'Name'}
               placeholder={'enter your name'}
               type={'text'}
@@ -57,6 +73,7 @@ bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
               }
             />
             <Inputfield
+             error={errors.email}
               label={'Email'}
               placeholder={'enter your email'}
               type={'email'}
@@ -65,13 +82,15 @@ bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
               }
             />
             <Dropdown
+             error={errors.role}
               label='Role'
               placeholder='Chose your role'
-              options={['option 1', 'option 2']}
+              options={['Event Planning Agency', 'Event Owner']}
               value={formData.role}
               onChange={(option) => setFormData({ ...formData, role: option })}
             />
             <Inputfield
+             error={errors.password}
               label={'Password'}
               placeholder={'enter your password'}
               type={!showPassword ? 'password' : 'text'}
@@ -83,6 +102,7 @@ bg-white/15 backdrop-blur-lg rounded-3xl shadow-lg border border-white/30
             />
 
             <Inputfield
+             error={errors.confirmPassword}
               label={'Confirm Password'}
               placeholder={'re-enter your password'}
               type={!showRePassword ? 'password' : 'text'}

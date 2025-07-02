@@ -14,9 +14,9 @@ export const ProgressBar_Dashboard = [
 ];
 
 export const markedDates = {
-  '2025-05-08': { project: 'Website Redesign' },
-  '2025-05-15': { project: 'App Launch' },
-  '2025-05-20': { project: 'Marketing Review' },
+  '2025-07-10': { project: 'Website Redesign' },
+  '2025-07-15': { project: 'App Launch' },
+  '2025-07-20': { project: 'Marketing Review' },
 };
 
 export const reviews = [
